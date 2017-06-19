@@ -35,7 +35,7 @@
                     password: this.user.password
                 };
                 console.log(data);
-                this.$http.post('http://localhost:8000/oauth/token', data)
+                this.$http.post('oauth/token', data)
                     .then(response => {
                         console.log(response.body)
                         this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now());

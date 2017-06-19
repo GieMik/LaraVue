@@ -9,20 +9,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">LaraVue</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Link</a></li>
+                    <li><router-link to="/feed">Feed</router-link></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Control <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><router-link to="/login">Login</router-link></li>
+                            <li><router-link to="/login">Register</router-link></li>
+                            <li @click="logout()"><a>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -32,5 +33,18 @@
 </template>
 
 <script>
+    export default {
+        data() {
+            return  {
+
+            }
+        },
+        methods: {
+            logout() {
+                this.$auth.destroyToken();
+                this.$router.push('/login');
+            }
+        }
+    }
 
 </script>

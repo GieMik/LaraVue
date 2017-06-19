@@ -13,6 +13,9 @@ new Vue({
     router: router
 });
 
+Vue.http.options.root = 'http://localhost:8000';
+Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
+
 router.beforeEach(
     (to, from, next) => {
          if (to.matched.some(record => record.meta.forVisitors)) {
