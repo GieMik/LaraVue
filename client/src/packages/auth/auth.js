@@ -34,7 +34,7 @@ export default function (Vue) {
     Object.defineProperties(Vue.prototype, {
         $auth: {
             get: () => {
-              return Vue.auth;
+                return Vue.auth;
             }
         }
     });

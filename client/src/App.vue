@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .container {
-        max-width: 600px;
-    }
+    /*.container {*/
+        /*max-width: 600px;*/
+    /*}*/
 </style>
