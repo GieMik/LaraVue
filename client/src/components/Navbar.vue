@@ -9,20 +9,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">LaraVue</a>
+                <a class="navbar-brand">LaraVue</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><router-link to="/feed">Feed</router-link></li>
+                    <router-link v-if="isAuth" tag="li" to="/feed"><a>Feed</a></router-link>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Control <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><router-link to="/login">Login</router-link></li>
-                            <li><router-link to="/login">Register</router-link></li>
+                            <router-link v-if="!isAuth" tag="li" to="/login"><a>Login</a></router-link>
+                            <router-link v-if="!isAuth" tag="li" to="/register"><a>Register</a></router-link>
                             <li @click="logout()"><a>Logout</a></li>
                         </ul>
                     </li>
@@ -36,8 +36,11 @@
     export default {
         data() {
             return  {
-
+                isAuth: null
             }
+        },
+        created() {
+            this.isAuth = this.$auth.isAuthenticated;
         },
         methods: {
             logout() {

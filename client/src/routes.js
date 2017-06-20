@@ -8,6 +8,7 @@ import Feed from './components/Feed.vue';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/login',
@@ -30,7 +31,8 @@ const router = new VueRouter({
                 forAuth: true
             }
         }
-    ]
+    ],
+    linkActiveClass: 'active'
 });
 
 export default router;
